@@ -10,6 +10,7 @@ Alunos: João Marcos de Aquino Gonçalves e João Victor dos Santos Nogueira
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 // Struct para Data
 typedef struct {
@@ -24,6 +25,7 @@ typedef struct {
   char nomeCliente[50];
   char endereco[100];
   char telCliente[15];
+  int pontosFidelidade;
 } cliente;
 
 // Struct para funcionarios
@@ -55,7 +57,7 @@ typedef struct {
 
 void cadastrarCliente() {
   FILE *arqCliente;
-  arqCliente = fopen("Clientes.dat", "ab+");
+  arqCliente = fopen("Clientes.dat", "ab+"); //ab+ para adicionar dados ao arquivo
   if (!arqCliente) {
     printf("Erro ao abrir o arquivo");
     exit(1);
@@ -64,11 +66,67 @@ void cadastrarCliente() {
 
 void cadastrarFuncionario() {
   FILE *arqFuncionario;
-  arqFuncionario = fopen("Funcionarios.dat", "ab+");
+  arqFuncionario = fopen("Funcionarios.dat", "ab+"); //ab+ para adicionar dados ao arquivo
   if (!arqFuncionario) {
     printf("Erro ao abrir o arquivo");
     exit(1);
   }
+}
+
+void cadastrarEstadia() {
+  FILE *arqEstadia;
+    arqEstadia = fopen("Estadia.dat", "ab+"); //ab+ para adicionar dados ao arquivo
+  if (!arqEstadia) {
+    printf("Erro ao abrir o arquivo");
+    exit(1);
+  }
+}
+
+void baixaEstadia() {
+  FILE *arqEstadia;
+    arqEstadia = fopen("Estadia.dat", "rb+"); //rb+ para editar arquivo
+  if (!arqEstadia) {
+    printf("Erro ao abrir o arquivo");
+    exit(1);
+  }
+}
+
+void pesquisarCliente() {
+  FILE *arqCliente;
+  arqCliente = fopen("Clientes.dat", "rb"); //rb para ler arquivo
+  if (!arqCliente) {
+    printf("Erro ao abrir o arquivo");
+    exit(1);
+  }
+}
+
+void pesquisarFuncionario() {
+  FILE *arqFuncionario;
+  arqFuncionario = fopen("Funcionarios.dat", "rb"); //rb para ler arquivo
+  if (!arqFuncionario) {
+    printf("Erro ao abrir o arquivo");
+    exit(1);
+  }
+}
+
+void mostrarEstadiasCliente() {
+  FILE *arqCliente,*arqEstadia;
+  arqCliente = fopen("Clientes.dat", "rb"); //rb para ler arquivo
+  arqEstadia = fopen("Estadia.dat", "rb"); //rb para ler arquivo
+  if (!arqCliente && !arqEstadia) {
+    printf("Erro ao abrir arquivos");
+    exit(1);
+  }
+}
+
+void calcularPontosFidelidade(){
+  FILE *arqCliente;
+  arqCliente = fopen("Clientes.dat", "rb");
+  if(!arqCliente){
+    printf("Erro ao abrir arquivos");
+    exit(1);
+  }
+  
 }
 
 void menu() {
