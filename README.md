@@ -60,6 +60,8 @@ erDiagram
         string nome
         string endereco
         string telefone
+        int pontos_fidelidade
+
     }
 
     FUNCIONARIO {
