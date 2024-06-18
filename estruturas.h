@@ -1,10 +1,15 @@
 #ifndef ESTRUTURAS_H
 #define ESTRUTURAS_H
+#include <stdbool.h>
 
-#define MAX_CLIENTES 100
-#define MAX_FUNCIONARIOS 50
-#define MAX_QUARTOS 15
-#define MAX_ESTADIAS 300
+
+// Enum para cargos
+typedef enum{
+  RECEPCIONISTA = 1,
+  AUXILIAR_DE_LIMPEZA = 2,
+  GARCOM = 3,
+  GERENTE = 4
+} Cargo;
 
 // Struct para Data
 typedef struct {
@@ -26,7 +31,7 @@ typedef struct {
 typedef struct {
   int idFuncionario;
   char nomeFuncionario[50];
-  int cargo[4];
+  Cargo cargo;
   char telFuncionario[15];
   float salario;
 } funcionario;
