@@ -15,6 +15,7 @@ Alunos: João Marcos de Aquino Gonçalves e João Victor dos Santos Nogueira
 #define MAX_FUNCIONARIOS 50
 #define MAX_QUARTOS 15
 #define MAX_ESTADIAS 300
+#define MAX_STRING 256
 
 void limparBuffer()
 {
