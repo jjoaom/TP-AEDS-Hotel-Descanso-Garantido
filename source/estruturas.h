@@ -2,6 +2,9 @@
 #define ESTRUTURAS_H
 #include <stdbool.h>
 
+#define MAX_STRING 256
+#define MAX_TEL 15
+
 
 // Enum para cargos
 typedef enum{
@@ -21,18 +24,18 @@ typedef struct {
 // Struct para clientes
 typedef struct {
   int idCliente;
-  char nomeCliente[50];
-  char endereco[100];
-  char telCliente[15];
-  int pontosFidelidade;
+  char nomeCliente[MAX_STRING];
+  char endereco[MAX_STRING];
+  char telCliente[MAX_TEL];
+  int pontosFidelidade = 0;
 } cliente;
 
 // Struct para funcionarios
 typedef struct {
   int idFuncionario;
-  char nomeFuncionario[50];
+  char nomeFuncionario[MAX_STRING];
   Cargo cargo;
-  char telFuncionario[15];
+  char telFuncionario[MAX_TEL];
   float salario;
 } funcionario;
 
