@@ -24,8 +24,6 @@ void limparBuffer()
     ;
 }
 
-void arquivosVazio(FILE *arquivo) {}
-
 void verificaArquivo(FILE *arquivo)
 {
   if (!arquivo)
@@ -35,12 +33,40 @@ void verificaArquivo(FILE *arquivo)
   }
 }
 
-int cadastrarCliente(int id, cliente clientes[])
+int lerId(FILE *arquivo){
+  int id;
+  fseek(arquivo, 0, SEEK_SET);
+  fread(&id,sizeof(id),1, arquivo);
+  return id;
+}
+
+void salvarId(FILE *arquivo, int id){
+  fseek(arquivo, 0, SEEK_SET);
+  fwrite(&id, sizeof(id), 1, arquivo);
+
+}
+
+void iniciateFiles(const char nomeArquivo){
+  FILE *arq = fopen(nomeArquivo,"rb+");
+  if(!arq){
+    arq = fopen(nomeArquivo, "wb+");
+    verificaArquivo(arq);
+    int id = 0;
+    fwrite(&id,sizeof(id),1,arq);
+  }
+  fclose(arq);
+}
+
+void cadastrarCliente()
 {
   FILE *arqCliente;
-  arqCliente =
-      fopen("Clientes.dat", "ab+"); // ab+ para adicionar dados ao arquivo
+  arqCliente = fopen("Clientes.dat", "rb+");
   verificaArquivo(arqCliente);
+
+  int id = lerId(arqCliente);
+
+  cliente clientes[MAX_CLIENTES];
+
   int status = 1;
   while (status)
   {
@@ -67,8 +93,10 @@ int cadastrarCliente(int id, cliente clientes[])
     }
     clientes[id].pontosFidelidade = 0;
 
+    fseek(arqCliente,sizeof(id) + id * sizeof(cliente),SEEK_SET);
     fwrite(&clientes[id], sizeof(cliente), 1, arqCliente);
     id++;
+    salvarId(arqCliente,id);
 
     printf("Você quer registrar outro cliente?\n");
     printf("1 - Sim\n");
@@ -76,17 +104,21 @@ int cadastrarCliente(int id, cliente clientes[])
     scanf("%d", &status);
   }
 
-  return id;
+  fclose(arqCliente);
 }
 
-int cadastrarFuncionario(int id, funcionario funcionarios[])
+void cadastrarFuncionario()
 {
   FILE *arqFuncionario;
   arqFuncionario =
-      fopen("Funcionarios.dat", "ab+"); // ab+ para adicionar dados ao arquivo
+      fopen("Funcionarios.dat", "rb+");
   verificaArquivo(arqFuncionario);
-  int status = 1;
 
+  int id = lerId(arqFuncionario);
+
+  funcionario funcionarios[MAX_FUNCIONARIOS];
+
+  int status = 1;
   while (status)
   {
     funcionarios[id].idFuncionario = id;
@@ -119,8 +151,11 @@ int cadastrarFuncionario(int id, funcionario funcionarios[])
     }
     printf("Qual o salário do funcionário: ");
     scanf("%f", &funcionarios[id].salario);
+
+    fseek(arqFuncionario,sizeof(id) + id * sizeof(funcionario),SEEK_SET);
     fwrite(&funcionarios[id], sizeof(funcionario), 1, arqFuncionario);
     id++;
+    salvarId(arqFuncionario,id);
 
     printf("Você quer registrar outro cliente?\n");
     printf("1 - Sim\n");
@@ -128,15 +163,18 @@ int cadastrarFuncionario(int id, funcionario funcionarios[])
     scanf("%d", &status);
   }
 
-  return id;
+  fclose(arqFuncionario);
 }
 
 int cadastrarEstadia(int id, estadia estadias[])
 {
   FILE *arqEstadia;
-  arqEstadia =
-      fopen("Estadia.dat", "ab+"); // ab+ para adicionar dados ao arquivo
+  arqEstadia = fopen("Estadia.dat", "rb+"); 
   verificaArquivo(arqEstadia);
+
+  int id = lerId(arqEstadia);
+
+  estadia estadias[MAX_ESTADIAS];
 
   estadias[id].idEstadia = id;
   printf("ID: %d\n", estadias[id].idEstadia);
@@ -152,10 +190,13 @@ int cadastrarEstadia(int id, estadia estadias[])
   scanf("%d", &estadias[id].idCliente);
   printf("Digite o número do quarto: ");
   scanf("%d", &estadias[id].numQuarto);
+
+  fseek(arqEstadia,sizeof(id) + id * sizeof(estadia),SEEK_SET);
   fwrite(&estadias[id], sizeof(estadia), 1, arqEstadia);
   id++;
+  salvarId(arqEstadia,id);
 
-  return id;
+  fclose(arqEstadia);
 }
 
 void baixaEstadia(estadia estadias[])
@@ -243,12 +284,15 @@ void calcularPontosFidelidade(clientes)
 void menu()
 {
 
-  struct cliente clientes[MAX_CLIENTES];
-  struct funcionario funcionarios[MAX_FUNCIONARIOS];
-  struct quarto quartos[MAX_QUARTOS];
-  struct estadia estadias[MAX_ESTADIAS];
+  cliente clientes[MAX_CLIENTES];
+  funcionario funcionarios[MAX_FUNCIONARIOS];
+  quarto quartos[MAX_QUARTOS];
+  estadia estadias[MAX_ESTADIAS];
   int opcao;
-  int idCliente = 0, idFuncionario = 0, idEstadia = 0;
+
+  iniciateFiles("Clientes.dat");
+  iniciateFiles("Funcionarios.dat");
+  iniciateFiles("Estadias.dat");
 
   do
   {
@@ -267,17 +311,18 @@ void menu()
     printf("========================================\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
+    limparBuffer();
 
     switch (opcao)
     {
     case 1:
-      idCliente = cadastrarCliente(idCliente, clientes);
+      cadastrarCliente();
       break;
     case 2:
-      idFuncionario = cadastrarFuncionario(idFuncionario, funcionarios);
+      cadastrarFuncionario();
       break;
     case 3:
-      idEstadia = cadastrarEstadia(idEstadia, estadias);
+      cadastrarEstadia();
       break;
     case 4:
       baixaEstadia(estadias);

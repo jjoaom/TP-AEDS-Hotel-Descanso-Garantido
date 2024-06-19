@@ -1,6 +1,7 @@
 #ifndef ESTRUTURAS_H
 #define ESTRUTURAS_H
 #include <stdbool.h>
+#include "data.h"
 
 #define MAX_STRING 256
 #define MAX_TEL 15
@@ -14,20 +15,13 @@ typedef enum{
   GERENTE = 4
 } Cargo;
 
-// Struct para Data
-typedef struct {
-  int ano;
-  int mes;
-  int dia;
-} Data;
-
 // Struct para clientes
 typedef struct {
   int idCliente;
   char nomeCliente[MAX_STRING];
   char endereco[MAX_STRING];
   char telCliente[MAX_TEL];
-  int pontosFidelidade = 0;
+  int pontosFidelidade;
 } cliente;
 
 // Struct para funcionarios
