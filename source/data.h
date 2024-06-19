@@ -1,14 +1,13 @@
 #ifndef DATA_H
 #define DATA_H
-#include <stdbool.h>
 
 
 // Struct para Data
-typedef struct {
+class Data{
   int ano;
   int mes;
   int dia;
-} Data;
+};
 
 
 
