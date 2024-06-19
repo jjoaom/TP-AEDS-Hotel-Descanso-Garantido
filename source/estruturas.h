@@ -4,7 +4,7 @@
 #include "data.h"
 
 #define MAX_STRING 256
-#define MAX_TEL 15
+#define MAX_TEL 20
 
 
 // Enum para cargos
@@ -23,6 +23,18 @@ typedef struct {
   char telCliente[MAX_TEL];
   int pontosFidelidade;
 } cliente;
+
+// Struct para endereço
+
+typedef struct {
+    char rua[MAX_STRING];
+    char numero[10];
+    char bairro[MAX_STRING];
+    char cidade[MAX_STRING];
+    char estado[3];
+    char cep[9];
+} Endereco;
+
 
 // Struct para funcionarios
 typedef struct {
