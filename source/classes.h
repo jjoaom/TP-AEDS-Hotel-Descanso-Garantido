@@ -38,9 +38,14 @@ private:
   std::string telCliente;
 
 public:
+
+  cadastrarCliente();
+  pesquisarCliente();
   cliente(int id = 0, std::string nome = "", std::string end = "", std::string tel = "", int pontos = 0)
       : idCliente(id), nomeCliente(nome), endereco(end), telCliente(tel), pontosFidelidade(pontos) {}
 };
+
+
 
 // Struct para endereço
 
@@ -54,7 +59,7 @@ public:
   int numero;
   int cep;
 
-  endereco(std::string r = "", std::string b = "", std::string c = "", std::string e = "", int num = 0, int c = 0) : rua(r), bairro(b), cidade(c), estado(e), numero(num), cep(c) {}
+  endereco(std::string r = "", std::string b = "", std::string c = "", std::string e = "", int num = 0, int Cep = 0) : rua(r), bairro(b), cidade(c), estado(e), numero(num), cep(Cep) {}
 };
 
 // Struct para funcionarios
@@ -71,6 +76,7 @@ private:
 
 public: 
   funcionario(int id = 0, std::string nome = "", Cargo c = DESVINCULADO, std::string tel = "", float sal = 0.0) : idFuncionario(id), nomeFuncionario(nome), cargo(c), telFuncionario(tel), salario(sal) {}
+  void cadastrarFuncionario();
 };
 
 // Struct para estadias
@@ -84,6 +90,7 @@ public:
   int idCliente;
   int numQuarto;
   estadia(int id = 0, Data entrada = Data(), Data saida = Data(), int diarias = 0, int cliente = 0, int quarto = 0) : idEstadia(id), dataEntrada(entrada), dataSaida(saida), qntDiarias(diarias), idCliente(cliente), numQuarto(quarto) {}
+  void cadastrarEstadia();
 };
 
 // Struct para quartos

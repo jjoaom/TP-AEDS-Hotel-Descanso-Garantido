@@ -18,51 +18,85 @@ Alunos: João Marcos de Aquino Gonçalves e João Victor dos Santos Nogueira
 #include <string>
 
 
+  const int MAX_CLIENTES = 100;
+  cliente clientes[MAX_CLIENTES];
+
+  const int MAX_FUNCIONARIOS = 50;
+  funcionario funcionarios[MAX_FUNCIONARIOS];
+
+  const int MAX_QUARTOS = 15;
+  quarto quartos[MAX_QUARTOS];
+
+  const int MAX_ESTADIAS = 300;
+  estadia estadias[MAX_ESTADIAS];
+
+  const int MAX_STRING = 256;
+
+//seekp para ir a posição do arquivo antes de escrever
+//seekg para ir a posição do arquivo antes de ler
+
+//Limpar buffer de entrada
 void limparBuffer()
 {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
-
-void verificaArquivo(FILE *arquivo)
+//Função que verifica se o arquivo foi aberto com sucesso
+void verificaArquivo(std::fstream arquivo)
 {
-  if (!arquivo)
+  //função is_open semelhante a fopen do C
+  if (!arquivo.is_open())
   {
-    std::cout << "Erro ao abrir arquivo.\n";
+    //tipo cerr é utilizado para retornar erros
+    //endl é usado para quebra de linha, como \n
+    std::cerr << "Erro ao abrir arquivo." << std::endl ;
     exit(1);
   }
 }
 
-int lerId(FILE *arquivo)
+//Função responsável por fazer a leitura do id no inicio do arquivo
+//fstream permite o read e write no arquivo
+int lerId(std::fstream &arquivo)
 {
   int id;
-  fseek(arquivo, 0, SEEK_SET);
-  fread(&id, sizeof(id), 1, arquivo);
+  //seekg serve para buscar a posição dentro do arquivo
+  //::beg indica o inicio do texto
+  arquivo.seekg(0,std::ios::beg);
+  //leitura e retorno do arquivo
+  arquivo.read(reinterpret_cast<char*>(&id),sizeof(id));
   return id;
 }
 
-void salvarId(FILE *arquivo, int id)
+//Função responsável por salvar o id atualizado dentro do arquivo binario
+//recebe arquivo e variavel do id
+void salvarId(std::fstream &arquivo, int id)
 {
-  fseek(arquivo, 0, SEEK_SET);
-  fwrite(&id, sizeof(id), 1, arquivo);
+  //acessa o inicio do arquivo e atualiza o id
+  arquivo.seekp(0,std::ios::beg);
+  arquivo.write(reinterpret_cast<const char*>(&id), sizeof(id));
 }
 
-void iniciateFiles(const char nomeArquivo)
+
+//Função responsável por verificar se o arquivo está criado e caso não esteja 
+//criado gera o arquivo com a linha de id no inicio
+void iniciateFiles(const std::string nomeArquivo)
 {
-  FILE *arq = fopen(nomeArquivo, "rb+");
+  std::fstream arq;
+  arq.open(nomeArquivo,std::ios::binary);
   if (!arq)
   {
-    arq = fopen(nomeArquivo, "wb+");
-    verificaArquivo(arq);
+    arq.open(nomeArquivo,std::ios::in);
+    
     int id = 0;
-    fwrite(&id, sizeof(id), 1, arq);
+    arq.write(reinterpret_cast<char*>(&id),sizeof(id));
   }
-  fclose(arq);
+  arq.close();
 }
-
+//Função cadastro de cliente
+//Verificar possibilidade de inserir a função dentro da CLASSE Cliente
 void cadastrarCliente()
 {
-  FILE *arqCliente;
-  arqCliente = fopen("Clientes.dat", "rb+");
+  std::fstream arqCliente;
+  arqCliente.open("Clientes.dat",std::ios::app);
   verificaArquivo(arqCliente);
 
   int id = lerId(arqCliente);
@@ -76,17 +110,16 @@ void cadastrarCliente()
     std::cout << "ID: " << clientes[id].idCliente << "\n";
     std::cout << "Digite o nome do cliente: ";
     limparBuffer();
-    std::getline(std::cin, clientes[id].nomeCliente, 50);
+    std::getline(std::cin, clientes[id].nomeCliente);
 
     std::cout << "Digite o endereço do cliente: ";
-    std::getline(std::cin, clientes[id].endereco, 100);
+    std::getline(std::cin, clientes[id].endereco);
 
     std::cout << "Digite o telefone do cliente: ";
     std::getline(std::cin, clientes[id].telCliente);
 
     clientes[id].pontosFidelidade = 0;
-
-    fseek(arqCliente, sizeof(id) + id * sizeof(cliente), SEEK_SET);
+    arqCliente.fseek(arqCliente, sizeof(id) + id * sizeof(cliente), SEEK_SET);
     fwrite(&clientes[id], sizeof(cliente), 1, arqCliente);
     id++;
     salvarId(arqCliente, id);
@@ -268,10 +301,6 @@ void calcularPontosFidelidade()
 void menu()
 {
 
-  cliente clientes[MAX_CLIENTES];
-  funcionario funcionarios[MAX_FUNCIONARIOS];
-  quarto quartos[MAX_QUARTOS];
-  estadia estadias[MAX_ESTADIAS];
   int opcao;
 
   iniciateFiles("Clientes.dat");
@@ -280,19 +309,19 @@ void menu()
 
   do
   {
-    std::cout << "========================================\n";
-    std::cout << "            SISTEMA DE HOTEL            \n";
-    std::cout << "========================================\n";
-    std::cout << "1.  Cadastrar Cliente\n";
-    std::cout << "2.  Cadastrar Funcionario\n";
-    std::cout << "3.  Cadastrar Estadia\n";
-    std::cout << "4.  Dar baixa em Estadia\n";
-    std::cout << "5.  Pesquisar Cliente\n";
-    std::cout << "6.  Pesquisar Funcionario\n";
-    std::cout << "7.  Mostrar todas as estadias de um Cliente\n";
-    std::cout << "8.  Calcular pontos de fidelidade de um Cliente\n";
-    std::cout << "9.  Sair\n";
-    std::cout << "========================================\n";
+    std::cout << "========================================" << std::endl;
+    std::cout << "            SISTEMA DE HOTEL            " << std::endl;
+    std::cout << "========================================" << std::endl;
+    std::cout << "1.  Cadastrar Cliente" << std::endl;
+    std::cout << "2.  Cadastrar Funcionario" << std::endl;
+    std::cout << "3.  Cadastrar Estadia" << std::endl;
+    std::cout << "4.  Dar baixa em Estadia" << std::endl;
+    std::cout << "5.  Pesquisar Cliente" << std::endl;
+    std::cout << "6.  Pesquisar Funcionario" << std::endl;
+    std::cout << "7.  Mostrar todas as estadias de um Cliente" << std::endl;
+    std::cout << "8.  Calcular pontos de fidelidade de um Cliente" << std::endl;
+    std::cout << "9.  Sair" << std::endl;
+    std::cout << "========================================" << std::endl;
     std::cout <<"Escolha uma opcao: ";
     std::cin  >> opcao;
     limparBuffer();
@@ -324,11 +353,11 @@ void menu()
       calcularPontosFidelidade();
       break;
     case 9:
-      std::cout << "Saindo do programa...\n";
+      std::cout << "Saindo do programa..." << std::endl;
       std::cout << "Programa criado por João Marcos e João Victor.";
       break;
     default:
-      std::cout << "Opcao invalida! Tente novamente.\n";
+      std::cout << "Opcao invalida! Tente novamente." << std::endl;
       getchar(); // Limpa o buffer
       getchar(); // Espera um enter para continuar
     }
@@ -338,11 +367,6 @@ void menu()
 int main()
 {
   std::setlocale(LC_ALL, "Portuguese_Brazil.1252");
-  const int MAX_CLIENTES = 100;
-  const int MAX_FUNCIONARIOS = 50;
-  const int MAX_QUARTOS = 15;
-  const int MAX_ESTADIAS = 300;
-  const int MAX_STRING = 256;
 
   menu();
   return 0;
