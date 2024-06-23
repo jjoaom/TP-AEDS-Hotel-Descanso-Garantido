@@ -147,6 +147,8 @@ void cadastrarFuncionario()
   int status = 1;
   while (status)
   {
+    /*
+    att logica
     funcionarios[id].idFuncionario = id;
     std::cout << "ID: %d\n", funcionarios[id].idFuncionario;
     std::cout << "Digite o nome do funcionário: ";
@@ -169,6 +171,7 @@ void cadastrarFuncionario()
 
     std::cout << "Qual o salário do funcionário: ";
     std::cin >> funcionarios[id].salario;
+    */
 
     fseek(arqFuncionario, sizeof(id) + id * sizeof(funcionario), SEEK_SET);
     fwrite(&funcionarios[id], sizeof(funcionario), 1, arqFuncionario);
