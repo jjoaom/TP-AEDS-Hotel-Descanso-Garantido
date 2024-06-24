@@ -13,11 +13,9 @@ O sistema permitirá:
 
 1. **Cadastro de Clientes**
    - Código, nome, endereço, telefone
-   - Garantia de unicidade do código do cliente
 
 2. **Cadastro de Funcionários**
    - Código, nome, telefone, cargo, salário
-   - Garantia de unicidade do código do funcionário
 
 3. **Cadastro de Estadias**
    - Código da estadia, data de entrada, data de saída, quantidade de diárias, código do cliente, número do quarto
