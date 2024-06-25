@@ -12,15 +12,14 @@ O Hotel Descanso Garantido, localizado no centro de Itacaré – BA, busca moder
 O sistema permitirá:
 
 1. **Cadastro de Clientes**
-   - Código, nome, endereço, telefone
-   - Garantia de unicidade do código do cliente
+   - ID, nome, endereço, telefone
+
 
 2. **Cadastro de Funcionários**
-   - Código, nome, telefone, cargo, salário
-   - Garantia de unicidade do código do funcionário
+   - ID, nome, telefone, cargo, salário
 
 3. **Cadastro de Estadias**
-   - Código da estadia, data de entrada, data de saída, quantidade de diárias, código do cliente, número do quarto
+   - ID da estadia, data de entrada, data de saída, quantidade de diárias, código do cliente, número do quarto
    - Verificação de disponibilidade do quarto com base no status e capacidade
    - Cálculo automático da quantidade de diárias
 
@@ -29,19 +28,19 @@ O sistema permitirá:
    - Cálculo e exibição do valor total a ser pago pelo cliente
 
 5. **Pesquisa de Clientes e Funcionários**
-   - Pesquisa por nome ou código
+   - Pesquisa por nome ou ID
    - Exibição das informações cadastradas
 
 6. **Visualização de Estadias de um Cliente**
    - Exibição de todas as estadias de um cliente específico
 
 7. **Cálculo de Pontos de Fidelidade**
-   - Acúmulo de pontos de fidelidade (10 pontos por diária)
+   - Acúmulo de pontos de fidelidade
    - Suporte para múltiplas estadias por cliente
 
 ## Requisitos Técnicos
-- Linguagem de Programação: C
-- Armazenamento dos dados em arquivos binários
+- Linguagem de Programação: C++
+- Armazenamento dos dados em arquivos de texto
 - Utilização de bibliotecas em C para modularização do código
 - Interface de usuário em modo texto (terminal)
 - Persistência dos dados entre execuções do programa
@@ -50,6 +49,11 @@ O sistema permitirá:
 1. Compile o código utilizando um compilador C (por exemplo, `gcc`).
 2. Execute o programa principal.
 3. Utilize o menu interativo para testar as funcionalidades do sistema.
+
+## Instrução Terminal
+1. Abra o terminal linux
+2. Insira o comando 'g++ -o Hotel-Descanso main.cpp'
+3. Insira o comando './Hotel-Descando' para iniciar o código
 
 
 
