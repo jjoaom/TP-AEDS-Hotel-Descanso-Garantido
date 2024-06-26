@@ -59,8 +59,6 @@ public:
             cout << "CEP inválido. Digite novamente (apenas números): ";
             getline(cin, cep);
         }
-        
-        limparBuffer();
 
         cout << "Insira a rua: ";
         getline(cin, rua);
@@ -156,9 +154,9 @@ public:
             cerr << "Erro: nome do cliente não pode ser vazio!" << endl;
             return;
         }
-        cout << "||Digite o endereço do cliente||"<< endl;
+        cout << "Digite o endereço do cliente: ";
         endereco.createEndereco();
-        cout << "||Digite o telefone do cliente||" << endl;
+        cout << "Digite o telefone do cliente: ";
         telefone.createTelefone();
     }
     //Leitura de cliente

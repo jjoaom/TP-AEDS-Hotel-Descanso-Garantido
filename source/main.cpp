@@ -59,38 +59,24 @@ void menu() {
         switch (opcaoMenu) {
             case 1:
                 cadastrarCliente();
-                getchar();
-                system("cls");
                 break;
             case 2:
                 cadastrarFuncionario();
-                getchar();
-                system("cls");
                 break;
             case 3:
                 cadastrarEstadia();
-                getchar();
-                system("cls");
                 break;
             case 4:
                 pesquisarCliente();
-                getchar();
-                system("cls");
                 break;
             case 5:
                 pesquisarFuncionario();
-                getchar();
-                system("cls");
                 break;
             case 6:
                 baixaEstadia();
-                getchar();
-                system("cls");
                 break;
             case 7:
                 mostrarEstadiasCliente();
-                getchar();
-                system("cls");
                 break;
             case 8:
                 calcularPontosFidelidade();

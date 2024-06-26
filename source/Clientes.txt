@@ -1,0 +1,24 @@
+ID Cliente: 1
+Nome: João Marcos
+Endereço: puc coreu, 33, coreu, bh, mg, 01001000
+Telefone: +55 (31) 40028922
+Total de pontos de fidelidade: 0
+,
+ID Cliente: 2
+Nome: Maria
+Endereço: rua, 7, bairro, cidade, estado, 12345678
+Telefone: +55 (51) 967436785
+Total de pontos de fidelidade: 0
+,
+ID Cliente: 3
+Nome: Carlos Oliveira
+Endereço: Av. Central, 123, Centro, São Paulo, SP, 01234567
+Telefone: +55 (11) 987654321
+Total de pontos de fidelidade: 0
+,
+ID Cliente: 4
+Nome: Ana Silva
+Endereço: Rua das Flores, 45, Jardins, Rio de Janeiro, RJ, 20000000
+Telefone: +55 (21) 999887766
+Total de pontos de fidelidade: 0
+,
