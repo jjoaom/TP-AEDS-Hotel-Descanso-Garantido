@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/HotelDescansoGarantido.dir/main.o -o HotelDescansoGarantido 
+/usr/bin/c++ CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o -o HotelDescansoGarantido 

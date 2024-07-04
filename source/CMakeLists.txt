@@ -1,7 +1,10 @@
-# CMakeLists.txt dentro da pasta source
-file(GLOB SOURCES "*.cpp")
-file(GLOB HEADERS "*.h")
+cmake_minimum_required(VERSION 3.10)
 
-add_executable(HotelDescansoGarantido ${SOURCES} ${HEADERS})
+project(HotelDescansoGarantido)
 
-# Configurações adicionais conforme necessário, como linkar bibliotecas externas
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+add_executable(HotelDescansoGarantido main.cpp)
+
+include_directories(${PROJECT_SOURCE_DIR})

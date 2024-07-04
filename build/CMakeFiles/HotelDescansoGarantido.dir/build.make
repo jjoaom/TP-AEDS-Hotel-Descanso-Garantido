@@ -69,28 +69,28 @@ include CMakeFiles/HotelDescansoGarantido.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/HotelDescansoGarantido.dir/flags.make
 
-CMakeFiles/HotelDescansoGarantido.dir/main.o: CMakeFiles/HotelDescansoGarantido.dir/flags.make
-CMakeFiles/HotelDescansoGarantido.dir/main.o: /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp
-CMakeFiles/HotelDescansoGarantido.dir/main.o: CMakeFiles/HotelDescansoGarantido.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HotelDescansoGarantido.dir/main.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HotelDescansoGarantido.dir/main.o -MF CMakeFiles/HotelDescansoGarantido.dir/main.o.d -o CMakeFiles/HotelDescansoGarantido.dir/main.o -c /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp
+CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o: CMakeFiles/HotelDescansoGarantido.dir/flags.make
+CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o: /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp
+CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o: CMakeFiles/HotelDescansoGarantido.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o -MF CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o.d -o CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o -c /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp
 
-CMakeFiles/HotelDescansoGarantido.dir/main.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HotelDescansoGarantido.dir/main.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp > CMakeFiles/HotelDescansoGarantido.dir/main.i
+CMakeFiles/HotelDescansoGarantido.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HotelDescansoGarantido.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp > CMakeFiles/HotelDescansoGarantido.dir/main.cpp.i
 
-CMakeFiles/HotelDescansoGarantido.dir/main.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HotelDescansoGarantido.dir/main.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp -o CMakeFiles/HotelDescansoGarantido.dir/main.s
+CMakeFiles/HotelDescansoGarantido.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HotelDescansoGarantido.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp -o CMakeFiles/HotelDescansoGarantido.dir/main.cpp.s
 
 # Object files for target HotelDescansoGarantido
 HotelDescansoGarantido_OBJECTS = \
-"CMakeFiles/HotelDescansoGarantido.dir/main.o"
+"CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o"
 
 # External object files for target HotelDescansoGarantido
 HotelDescansoGarantido_EXTERNAL_OBJECTS =
 
-HotelDescansoGarantido: CMakeFiles/HotelDescansoGarantido.dir/main.o
+HotelDescansoGarantido: CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o
 HotelDescansoGarantido: CMakeFiles/HotelDescansoGarantido.dir/build.make
 HotelDescansoGarantido: CMakeFiles/HotelDescansoGarantido.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable HotelDescansoGarantido"
