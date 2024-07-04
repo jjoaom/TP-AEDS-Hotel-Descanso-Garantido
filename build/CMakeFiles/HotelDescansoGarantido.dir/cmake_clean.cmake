@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o"
-  "CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o.d"
+  "CMakeFiles/HotelDescansoGarantido.dir/main.o"
+  "CMakeFiles/HotelDescansoGarantido.dir/main.o.d"
   "HotelDescansoGarantido"
   "HotelDescansoGarantido.pdb"
 )

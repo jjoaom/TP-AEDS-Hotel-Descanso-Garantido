@@ -54,7 +54,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido
+CMAKE_SOURCE_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build
@@ -63,57 +63,42 @@ CMAKE_BINARY_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: source/all
+all: CMakeFiles/HotelDescansoGarantido.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: source/preinstall
+preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: source/clean
+clean: CMakeFiles/HotelDescansoGarantido.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory source
-
-# Recursive "all" directory target.
-source/all: source/CMakeFiles/HotelDescansoGarantido.dir/all
-.PHONY : source/all
-
-# Recursive "preinstall" directory target.
-source/preinstall:
-.PHONY : source/preinstall
-
-# Recursive "clean" directory target.
-source/clean: source/CMakeFiles/HotelDescansoGarantido.dir/clean
-.PHONY : source/clean
-
-#=============================================================================
-# Target rules for target source/CMakeFiles/HotelDescansoGarantido.dir
+# Target rules for target CMakeFiles/HotelDescansoGarantido.dir
 
 # All Build rule for target.
-source/CMakeFiles/HotelDescansoGarantido.dir/all:
-	$(MAKE) $(MAKESILENT) -f source/CMakeFiles/HotelDescansoGarantido.dir/build.make source/CMakeFiles/HotelDescansoGarantido.dir/depend
-	$(MAKE) $(MAKESILENT) -f source/CMakeFiles/HotelDescansoGarantido.dir/build.make source/CMakeFiles/HotelDescansoGarantido.dir/build
+CMakeFiles/HotelDescansoGarantido.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles --progress-num=1,2 "Built target HotelDescansoGarantido"
-.PHONY : source/CMakeFiles/HotelDescansoGarantido.dir/all
+.PHONY : CMakeFiles/HotelDescansoGarantido.dir/all
 
 # Build rule for subdir invocation for target.
-source/CMakeFiles/HotelDescansoGarantido.dir/rule: cmake_check_build_system
+CMakeFiles/HotelDescansoGarantido.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 source/CMakeFiles/HotelDescansoGarantido.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/HotelDescansoGarantido.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build/CMakeFiles 0
-.PHONY : source/CMakeFiles/HotelDescansoGarantido.dir/rule
+.PHONY : CMakeFiles/HotelDescansoGarantido.dir/rule
 
 # Convenience name for target.
-HotelDescansoGarantido: source/CMakeFiles/HotelDescansoGarantido.dir/rule
+HotelDescansoGarantido: CMakeFiles/HotelDescansoGarantido.dir/rule
 .PHONY : HotelDescansoGarantido
 
 # clean rule for target.
-source/CMakeFiles/HotelDescansoGarantido.dir/clean:
-	$(MAKE) $(MAKESILENT) -f source/CMakeFiles/HotelDescansoGarantido.dir/build.make source/CMakeFiles/HotelDescansoGarantido.dir/clean
-.PHONY : source/CMakeFiles/HotelDescansoGarantido.dir/clean
+CMakeFiles/HotelDescansoGarantido.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/clean
+.PHONY : CMakeFiles/HotelDescansoGarantido.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

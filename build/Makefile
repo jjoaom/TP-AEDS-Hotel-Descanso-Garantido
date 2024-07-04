@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido
+CMAKE_SOURCE_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/build
@@ -126,8 +126,23 @@ HotelDescansoGarantido: cmake_check_build_system
 
 # fast build rule for target.
 HotelDescansoGarantido/fast:
-	$(MAKE) $(MAKESILENT) -f source/CMakeFiles/HotelDescansoGarantido.dir/build.make source/CMakeFiles/HotelDescansoGarantido.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/build
 .PHONY : HotelDescansoGarantido/fast
+
+# target to build an object file
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/main.o
+.PHONY : main.o
+
+# target to preprocess a source file
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/main.i
+.PHONY : main.i
+
+# target to generate assembly for a file
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HotelDescansoGarantido.dir/build.make CMakeFiles/HotelDescansoGarantido.dir/main.s
+.PHONY : main.s
 
 # Help Target
 help:
@@ -138,6 +153,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... HotelDescansoGarantido"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

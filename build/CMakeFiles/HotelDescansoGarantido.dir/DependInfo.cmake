@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp" "source/CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o" "gcc" "source/CMakeFiles/HotelDescansoGarantido.dir/main.cpp.o.d"
+  "/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/main.cpp" "CMakeFiles/HotelDescansoGarantido.dir/main.o" "gcc" "CMakeFiles/HotelDescansoGarantido.dir/main.o.d"
   )
 
 # Targets to which this target links.
