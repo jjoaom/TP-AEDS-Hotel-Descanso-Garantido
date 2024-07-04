@@ -1,0 +1,3 @@
+/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/build/CMakeFiles/HotelDescansoGarantido.dir
+/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/build/CMakeFiles/edit_cache.dir
+/home/jjoaom/Documents/TP-AEDS-Hotel-Descanso-Garantido/source/build/CMakeFiles/rebuild_cache.dir

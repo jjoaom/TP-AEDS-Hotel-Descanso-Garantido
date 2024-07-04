@@ -1,4 +1,4 @@
-1 Ivan Gerente 6000
+1 Ivan Gerente 14000
 2 Luis Garçom 2200
 3 Alexandre Auxiliar de limpeza 1500
 4 Ana Maria Recepcionista 2800
@@ -8,6 +8,6 @@
 8 Renata Garçom 2300
 9 Guilherme Auxiliar de limpeza 2400
 10 Mariana Auxiliar de limpeza 3500
-11 Rafael Gerente 3200
+11 Rafael Gerente 8000
 12 Camila Auxiliar de limpeza 2600
 13 Lucas Auxiliar de limpeza 2600
